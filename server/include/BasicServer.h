@@ -4,10 +4,14 @@
 #include "../../comm/CommManager.h"
 
 class BasicServer {
+
 	private:
-		map<int, CommManager> chunkContactDet;
+		CommManager recvManager;
+		map<int, CommManager> dns;
 
 	public:
+		void sendMessage(Message* message);
+
 		Message* receiveMessage();
 };
 #endif

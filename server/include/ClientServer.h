@@ -11,11 +11,11 @@ class ClientServer {
 	public:
 		map<int, vector<ChunkInfo*>> requestReadReplicaInfo(string filename);
 
-		void readChunkData(int chunkServer, ChunkInfo* chunkInfo, char* buffer);
+		char* readChunkData(int chunkServer, ChunkInfo* chunkInfo);
 
-		void readChunkData(int chunkServer, vector<ChunkInfo*> chunkInfo, char* buffer);
+		char* readChunkData(int chunkServer, vector<ChunkInfo*> chunkInfo);
 
-		void readChunkData(map<int, vector<ChunkInfo*>> replicaInfo, char* buffer);
+		char* readChunkData(map<int, vector<ChunkInfo*>> replicaInfo);
 
 		char* readFile(string filename);
 
@@ -25,9 +25,7 @@ class ClientServer {
 
 		void sendWriteCommand(int primaryServer, vector<int> replicaServer);
 
-		bool waitForAcks(vector<int> replicas, double timeout);
-
-		void writeFile(string filename, char* data);
+		void writeFile(string filename, char* data, int size);
 
 };
 #endif
