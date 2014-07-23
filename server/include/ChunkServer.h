@@ -11,10 +11,11 @@ class ChunkServer : public BasicServer {
 
 	private:
 		map<int, string> chunkToFile;
+		map<int, ClientData*> clientData;
 
 	public:
 
-		void work();
+		void serve();
 
 		void processMessage(Message);
 

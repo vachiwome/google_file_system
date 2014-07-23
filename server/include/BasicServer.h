@@ -8,6 +8,7 @@
 class BasicServer {
 
 	private:
+		int id;
 		CommManager recvManager;
 		map<int, CommManager> dns;
 
@@ -15,5 +16,7 @@ class BasicServer {
 		void sendMessage(Message* message);
 
 		Message* receiveMessage();
+
+		int getId();
 };
 #endif
