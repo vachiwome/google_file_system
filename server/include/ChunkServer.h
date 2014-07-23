@@ -1,23 +1,21 @@
 #ifndef CHUNK_SERVER_HH
 #define CHUNK_SERVER_HH
 
+#include <vector>
 #include <map>
 
 class ChunkServer : public BasicServer {
 
-	private:
-
 	public:
-		void writeChunkData(ChunkInfo* chunkInfo, char* data);
 
-		map<ChunkInfo*, char* chunkData> receiveSingleChunkData();
+		void processReadChunkData(ChunkInfo* chunkInfo, char* buffer);
 
-		map<ChunkInfo*, char* chunkData> receiveBulkChunkData();
+		void processReadChunkData(vector<ChunkInfo*> chunkInfo, char* buffer);
 
-		vector<int> waitForWriteOrder();
+		void processWriteMessage(vector<ChunkInfo*> chunkInfo, char* data);
 
-		void writeData(vector<int> writeOrder, map<ChunkInfo*, char* chunkData>);
+		void processWriteCommand(int primaryId);
 
-		void acknowledgeChunk();
+		void acknowledgeData();
 };
 #endif

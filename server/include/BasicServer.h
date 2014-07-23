@@ -5,8 +5,9 @@
 
 class BasicServer {
 	private:
-		CommManager commucationManager;
+		map<int, CommManager> chunkContactDet;
 
-		
+	public:
+		Message* receiveMessage();
 };
 #endif

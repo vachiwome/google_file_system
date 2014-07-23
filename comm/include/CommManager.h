@@ -4,6 +4,7 @@
 class CommManager {
 	private:
 		SocketManager sockManager;
+		
 	public:
 		void sendMessage(Message* message);
 };

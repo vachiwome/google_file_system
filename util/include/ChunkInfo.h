@@ -1,8 +1,11 @@
 #ifndef CHUNK_INFO
 #define CHUNK_INFO
 
+#include <vector>
+
+using namespace std;
+
 struct ChunkInfo {
-	int chunkServerId;
 	int chunkId;
 	int startOffset;
 	int endOffset;
@@ -10,6 +13,10 @@ struct ChunkInfo {
 
 typedef struct ChunkInfo ChunkInfo;
 
-ChunkInfo* createChunkInfo(int chunkServerId, int chunkId, int startOffset, int endOffset);
+ChunkInfo* createChunkInfo(int chunkId, int startOffset, int endOffset);
+
+int getChunkSize(ChunkInfo* chunkInfo);
+
+int getChunkSize(vector<ChunkInfo*> chunkInfo);
 
 #endif

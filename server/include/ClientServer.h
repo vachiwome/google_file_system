@@ -10,20 +10,24 @@ class ClientServer {
 
 	public:
 		map<int, vector<ChunkInfo*>> requestReadReplicaInfo(string filename);
-		
+
+		void readChunkData(int chunkServer, ChunkInfo* chunkInfo, char* buffer);
+
+		void readChunkData(int chunkServer, vector<ChunkInfo*> chunkInfo, char* buffer);
+
+		void readChunkData(map<int, vector<ChunkInfo*>> replicaInfo, char* buffer);
+
+		char* readFile(string filename);
+
 		map<int, vector<ChunkInfo*>> requestWriteReplicaInfo(int filesize);
 
-		char* readChunkData(ChunkInfo* chunkInfo);
+		void sendWriteMessage(int chunkServer, vector<ChunkInfo*> chunkInfo, char* data);
 
-		char* readChunkData(map<int, vector<ChunkInfo*>> replicaInfo);
+		void sendWriteCommand(int primaryServer, vector<int> replicaServer);
 
-		void sendChunkData(ChunkInfo* chunkInfo, char* data);
+		bool waitForAcks(vector<int> replicas, double timeout);
 
-		void sendChunkData(map<int, vector<ChunkInfo*>> replicaInfo, char* data);
-
-		bool waitForAcks(int numReplicas, double timeout);
-
-		void sendWriteCommand(int primaryChunkServer);
+		void writeFile(string filename, char* data);
 
 };
 #endif

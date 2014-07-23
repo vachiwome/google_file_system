@@ -9,7 +9,7 @@ class SocketManager {
 	public:
 		void connectToHost(string hostname, int portno);
 
-		void sendData(const void* data);
+		void sendData(const void* data, int size);
 
 };
 #endif
