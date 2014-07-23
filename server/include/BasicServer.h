@@ -3,6 +3,8 @@
 
 #include "../../comm/CommManager.h"
 
+#define MASTER_SERVER 0
+
 class BasicServer {
 
 	private:
