@@ -1,6 +1,8 @@
 #ifndef MESSAGE_HH
 #define MESSAGE_HH
 
+#define MAX_MSG_SIZE 1024
+
 enum MessageType {
 	ACK,
 	READ,
@@ -11,15 +13,18 @@ enum MessageType {
 
 struct Message {
 	MessageType type;
+	int size;
 	int source;
 	int target;
 	char* data;
+	string filename;
 	vector<ChunkInfo> chunkInfo;
 
 };
 
 typedef struct Message Message;
 
-Message* createMessage();
+Message* createMessage(MessageType type, int size, int source, int target, char* data, string filename, vector<ChunkInfo> chunkInfo);
+
 
 #endif

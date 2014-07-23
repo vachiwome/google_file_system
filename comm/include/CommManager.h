@@ -6,6 +6,11 @@ class CommManager {
 		SocketManager sockManager;
 		
 	public:
+
+		void serializeMessage(Message* message);
+
 		void sendMessage(Message* message);
+
+		Message* receiveMessage();
 };
 #endif

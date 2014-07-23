@@ -7,9 +7,15 @@ class SocketManager {
 		int portno;
 
 	public:
-		void connectToHost(string hostname, int portno);
+
+		int receiveData(char* buffer);
 
 		void sendData(const void* data, int size);
 
+		int connectToHost(string hostname, int portno);
+
+		void listenAndAccept(int portno);
+
+		int getFd();
 };
 #endif
