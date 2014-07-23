@@ -7,8 +7,15 @@
 class MasterServer : public BasicServer {
 	private:
 		map<string, FileMetadata> metadata;
+		map<int, ChunkServerData> chunkServerData;
+		vector<int> chunkServers;
+
 
 		bool canClientAccessChunk(int clientId, int chunkServerId, int chunkId, int mode);
+
+		vector<ChunkInfo*> assignChunks(int chunkServer, int size);
+
+		vector<int> computeReplicas();
 
 	public:
 

@@ -2,13 +2,18 @@
 #define FILE_METADATA_HH
 
 #include <string>
+#include <vector>
+#include <map>
 
 using namespace std;
 
-class FileMetadata {
+struct FileMetadata {
 	private:
 		vector<int> allowedReaders;
 		vector<int> allowedWriters;
-		vector<ChunkInfo*> chunkInfo;
+		map<int,vector<ChunkInfo*> > chunkServerInfo;
 };
+
+typedef struct FileMetadata FileMetadata;
+
 #endif
