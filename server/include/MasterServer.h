@@ -4,6 +4,8 @@
 #include <vector>
 #include <map>
 
+#include "../../util/include/FileMetadata.h"
+
 class MasterServer : public BasicServer {
 	private:
 		map<string, FileMetadata> metadata;
@@ -21,7 +23,7 @@ class MasterServer : public BasicServer {
 
 		map<int,vector<ChunkInfo*> > computeReadChunkInfo(string filename);
 
-		map<int, vector<ChunkInfo*>> computeWriteChunkInfo(int size);
+		map<int, vector<ChunkInfo*> > computeWriteChunkInfo(int size);
 
 		void sendFileChunkInfo(map<int, vector<ChunkInfo*> > chunkInfo, int chunkServer);
 

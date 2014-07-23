@@ -8,10 +8,9 @@
 using namespace std;
 
 struct FileMetadata {
-	private:
-		vector<int> allowedReaders;
-		vector<int> allowedWriters;
-		map<int,vector<ChunkInfo*> > chunkServerInfo;
+	vector<int> allowedReaders;
+	vector<int> allowedWriters;
+	map<int,vector<ChunkInfo*> > chunkServerInfo;
 };
 
 typedef struct FileMetadata FileMetadata;
